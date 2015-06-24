@@ -1,5 +1,5 @@
 #Generate Parentheses
-`left` represents how many more left parentheses are needed. Once the number of left parentheses increases, corresponding need represented by `right` for right parenthese increases. Hence the algorithm will halt once the needs are satisfied (`left` and `right` drop to one);
+`left` represents how many more left parentheses are needed. Once the number of left parentheses increases, corresponding need represented by `right` for right parenthese increases. Hence the algorithm will halt once the needs are satisfied (`left` and `right` drop to zero);
 ```C++
 class Solution {
 public:
