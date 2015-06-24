@@ -1,6 +1,6 @@
 #Regular Expression Matching
 ##I made it in the first try!
-A key observation is that, if `x*` can either be an empty string or `x*x`. This serves as the inductive step to evaluate `match[row][col]` from `match[row - 1][col]`. In the following code, only the first branch is needed for this particular problem. The other parts are for the case where string `s` is also a regular expression itself.
+A key observation is that, `x*` can either be an empty string or `x*x`. This serves as the inductive step to evaluate `match[row][col]` from `match[row - 1][col]`. In the following code, only the first conditional branch is needed for this particular problem. The other parts are for the case where string `s` is also a regular expression itself.
 
 ##O(N^2) DP solution
 ```C++
