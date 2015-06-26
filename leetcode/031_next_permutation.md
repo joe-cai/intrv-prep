@@ -12,9 +12,7 @@ public:
                 int minIdx = i + 1;
                 for (int j = i + 1; j < nums.size(); j++)
                     if (nums[j] > nums[i] && nums[j] <= nums[minIdx]) minIdx = j;
-                int swap = nums[minIdx];
-                nums[minIdx] = nums[i];
-                nums[i] = swap;
+		swap(nums[minIdx], nums[i]);
                 reverse(nums.begin() + i + 1, nums.end());
                 return;
             }
