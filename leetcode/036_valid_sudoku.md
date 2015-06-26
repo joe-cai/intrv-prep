@@ -1,5 +1,5 @@
 #Valid Sudoku
-For code simplicity, the following solution is of space complexity O(N^2). Note that O(N) space complexity is achievable, but the codes will be somewhat longer.
+For code simplicity, the following solution is of space complexity O(N^2). Note that O(N) space complexity is achievable, but the codes will be somewhat longer. Since the problem scale is small (9 x 9), the space is not a big deal here.
 ```C++
 class Solution {
 public: // using magic number since the problem is very specific
