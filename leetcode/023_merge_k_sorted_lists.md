@@ -1,5 +1,5 @@
 #Merge k Sorted Lists
-The following solution is based on the Java solution by `wksora` without using a heap, which is pretty straight forward. My solution uses a heap, and the code is a little verboser.
+My solution uses a heap, and the code is kind of verbose. The following solution is based on the Java solution by `wksora`. With the same O(NlogN) time complexity, this solution don't need to use a heap, which is more straight forward.
 
 ```C++
 class Solution {
