@@ -1,5 +1,6 @@
 #Anagrams
-##O(N(mlogm)) average time and O(Nm) space solution (including the time to hash a string)
+##O(N(mlogm)) average time and O(Nm) space solution
+Including the time to hash a string.
 ```C++
 class Solution {
 public:
