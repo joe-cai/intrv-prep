@@ -1,4 +1,6 @@
 #Jump Game II
+##Why I did not make it in the first try:
+I failed to recognize this problem has a straight forward linear solution at my first try. Came out with the following linear algorithm at my second attempt.
 ```C++
 class Solution {
 public:
