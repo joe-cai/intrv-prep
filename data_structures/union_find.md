@@ -1,6 +1,6 @@
 #Union-Find
 ##Basic Interface
-API | Union | Find
+API | union | find
 --- | ----- | ----
 Time | ~O(1) (log*n) | ~O(1) (log*n)
 
@@ -11,14 +11,47 @@ Two tricks are used to drastically speed up `root`:
 - Path Compression
 
 ##Implementation
-I implemented the union-find data structure as an associative containers. The keys are integer numbers, while the value can be customized.
+I implemented the union-find data structure as an associative containers. The keys are integer numbers, while the value can be some customized data structures.
 ```C++
+#include <algorithm>
+#include <vector>
+using namespace std;
+
 class union_find {
-}
+private:
+  vector<int> root;
+  vector<int> set_size;
+  int find_root(int id) {
+    while (root[id] != id) {
+      /** path compression **/
+      root[id] = root[root[id]];
+      id = root[id];
+    }
+    return id;
+  }
+public:
+  union_find(int size) {
+    set_size = vector<int>(size, 1);
+    root = vector<int>(size, 0);
+    for (int i = 0; i < size; i++) root[i] = i;
+  }
+  void unions(int id_a, int id_b) {
+    int root_a = find_root(id_a);
+    int root_b = find_root(id_b);
+    /** weigthed union **/
+    if (set_size[root_a] > set_size[root_b])
+      swap(root_a, root_b);
+    root[root_a] = root_b;
+    set_size[root_b] += set_size[root_a];
+  }
+  bool find(int id_a, int id_b) {
+    return find_root(id_a) == find_root(id_b);
+  }
+};
 ```
 
 ##Applications
-- connectivity problems
+- dynamic connectivity problems
 - image processing (segmentation)
 - tarjan's lowest common ancestor algorithm
 - kruskal's algorithm
