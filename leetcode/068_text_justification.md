@@ -28,13 +28,13 @@ public:
         return sol;
     }
 
-    void justify(vector<string>& words, vector<int>& ans, vector<string>& sol, int size, int maxWidth) {
-        if (ans.size() == 1) { 
-            sol.push_back(words[ans[0]] + string(maxWidth - words[ans[0]].size(), ' '));
+    void justify(vector<string>& words, vector<int>& ans, vector<string>& sol, int size, int width) {
+        if (ans.size() == 1) { // corner case
+            sol.push_back(words[ans[0]] + string(width - words[ans[0]].size(), ' '));
             return; 
         }
-        int numSpace = (maxWidth - size) / (ans.size() - 1) + 1;
-        int extraSpace = (maxWidth - size) % (ans.size() - 1);
+        int numSpace = (width - size) / (ans.size() - 1) + 1;
+        int extraSpace = (width - size) % (ans.size() - 1);
         string line, pad(numSpace, ' '), extrapad(numSpace + 1, ' ');
         for (int i = 0; i < ans.size() - 1; i++) {
             line += words[ans[i]];
