@@ -16,8 +16,10 @@ public:
         if (board[row][col] != word[pos] || board[row][col] == '#') return false;
         char backup = board[row][col];
         board[row][col] = '#';
-        if (helper(board, word, row - 1, col, pos + 1) || helper(board, word, row + 1, col, pos + 1) ||
-            helper(board, word, row, col - 1, pos + 1) || helper(board, word, row, col + 1, pos + 1))
+        if (helper(board, word, row - 1, col, pos + 1) || 
+            helper(board, word, row + 1, col, pos + 1) ||
+            helper(board, word, row, col - 1, pos + 1) || 
+            helper(board, word, row, col + 1, pos + 1))
             return true;
         board[row][col] = backup;
         return false;
