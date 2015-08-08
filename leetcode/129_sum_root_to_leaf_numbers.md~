@@ -1,0 +1,21 @@
+#Sum Root to Leaf Numbers
+```C++
+class Solution {
+public:
+    int sumNumbers(TreeNode* root) {
+        int ans = 0;
+        work(ans, root, 0);
+        return ans;
+    }
+    void work(int& ans, TreeNode* root, int partSum) {
+        if (root == NULL) return;
+        partSum = 10 * partSum + root->val;
+        if (root->left == NULL && root->right == NULL) {
+            ans += partSum;
+            return;
+        }
+        work(ans, root->left, partSum);
+        work(ans, root->right, partSum);
+    }
+};
+```
