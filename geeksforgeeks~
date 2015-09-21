@@ -1,0 +1,64 @@
+// Author :: Gaurav Ahirwar
+#include<bits/stdc++.h>
+#define FOR(i,n) for(int i = 0; i < n; i++)
+using namespace std;
+  
+void solve(string& A, string& B) {
+     
+    int n = A.length();
+    int m = B.length();
+      
+    if(n != m) {
+        cout << "Not Possible\n";
+        return;
+    }
+      
+     // This parts checks whether conversion is possible or not
+    int hash[256];
+    memset(hash, 0, sizeof hash);
+    FOR(i,n) hash[B[i]]++;
+    FOR(i,n) hash[A[i]]--;
+     
+    FOR(i,256) if(hash[i]) {
+        cout << "Not Possible\n";
+        return;
+    }
+     
+    // This part calculates the number of operations required
+    int i = n-1;
+    int j = n-1;
+    int ans = 0;
+     
+    // This is the tricky part .. Consider the example of converting EACBD to EABCD 
+    // Let n be length, Now it is clear that if last k characters are same in both strings
+    // than our problem is reduced to find insertions for string of length n-k. 
+    // Now, understand the process step by step. let i = n-1 , and j = n-1
+    // so if both characters are same move ahead no need of inserting character to front so i--, j--;
+    // if A[i] != B[j] thus A[i] should be moved from here and inserted at front so ans++
+    // now all the elements will shift to right in A, and now A[i-1]th element will occupy the position of
+    // A[i]th element, so what if again this newly shifted element doesn't match with B[j]? (that's the reason
+    // why we only move ahead in A[i] i.e., i-- when A[i] != B[j] ) We again throw this A[i] at front and do ans++
+    // We stop till the complete string A has been processed.
+    while(i >= 0) {
+         
+        if(A[i] != B[j]) {
+            i--;
+            ans++;
+        }
+        else {
+            i--;
+            j--;
+        }
+    }
+     
+    cout << "Steps => " << ans << endl;
+}
+  
+int main() {
+      
+    ios_base::sync_with_stdio(false);
+    string A = "EACBD";
+    string B = "EABCD";
+    solve(A, B);
+    return 0;
+}
