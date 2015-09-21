@@ -1,0 +1,22 @@
+class CollectingTokens {
+    int maxTokens(vector<int> A, vector<int> B, vector<int> tokens, int L) {
+	// parse the input into a tree structure
+	vector<vector<int>> tree;
+
+	queue<int> nodes;
+	nodes.push(0);
+	set<int> visited;
+	set.insert(0);
+	while (!nodes.empty()) {
+	    int curr = nodes.front();
+	    nodes.pop();
+	    for (int i = 0; i < A.size(); i++) {
+		if (curr == A[i] - 1 && visited.count(A[i] - 1) == 0) 
+		    tree[curr].push_back(B[i] - 1);
+		if (curr == B[i] - 1 && visited.count(B[i] - 1) == 0) 
+		    tree[curr].push_back(A[i] - 1);
+		
+	    }
+	}
+    }
+};

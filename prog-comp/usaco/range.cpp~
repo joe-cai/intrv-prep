@@ -1,0 +1,28 @@
+/*
+  ID:   caizhuo2
+  PROG: range
+  LANG: C++
+*/
+
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <algorithm>
+#include <vector>
+#include <queue>
+using namespace std;
+
+#define maxN 250
+int field[maxN][maxN];
+
+int main() {
+    ifstream cin("range.in");
+    int N;
+    cin >> N;
+    char c;
+    for (int i = 0; i < N; i++)
+	for (int j = 0; j < N; j++)
+	    cin >> field[i][j];
+
+    
+}

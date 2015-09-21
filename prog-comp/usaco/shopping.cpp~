@@ -1,0 +1,19 @@
+/*
+  ID:   caizhuo2
+  PROG: shopping
+  LANG: C++
+*/
+
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <algorithm>
+#include <vector>
+#include <queue>
+using namespace std;
+
+int main() {
+    ifstream cin("shopping.in");
+    ofstream cout("shopping.out");
+    
+}

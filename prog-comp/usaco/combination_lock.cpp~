@@ -1,0 +1,12 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+  int N;
+  cin >> N;
+  int farmer[3];
+  int master[3];
+  cin >> farmer[0] >> farmer[1] >> farmer[2];
+  cin >> master[0] >> master[1] >> master[2];
+}
